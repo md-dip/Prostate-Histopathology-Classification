@@ -1,0 +1,38 @@
+==============================================================================
+  Ablation Study — V1 through V5 (non-TTA metrics)
+==============================================================================
+  Test set: N = 901 patches, seed=42, image-level 70/15/15 stratified split
+
+  Variant                         Acc             95% CI       AUC       MCC    D vs V1
+  ------------------------------------------------------------------------------
+  V1_CNN_only                  95.23%     [93.90, 96.56]   0.9941   0.9064     +0.00pp
+  V2_CNN_GAT                   94.78%     [93.23, 96.23]   0.9952   0.8987     -0.44pp
+  V3_CNN_GCN                   97.11%     [96.00, 98.11]   0.9960   0.9426     +1.89pp
+  V4_CNN_GAT_GCN_noSE          96.34%     [95.01, 97.56]   0.9955   0.9284     +1.11pp
+  V5_Hybrid_full               99.33%     [98.78, 99.78]   0.9998   0.9867     +4.11pp
+  ------------------------------------------------------------------------------
+
+  Component-by-component contribution (non-TTA accuracy)
+    V1 -> V2 (add GAT branch alone)                        -0.44 pp
+    V1 -> V3 (add GCN branch alone)                        +1.89 pp
+    V1 -> V4 (add both branches, concat)                   +1.11 pp
+    V4 -> V5 (add SE gate) [pure SE effect]                +3.00 pp
+    V1 -> V5 (full model, all components)                  +4.11 pp
+
+% --- LaTeX table snippet for Section 3 Ablation ---
+\begin{table}[htb]
+\centering
+\caption{Ablation study on the DiagSet test set (N=901 patches). Values are non-TTA accuracy at threshold 0.5. Bootstrap 95\% CIs from 1000 resamples.}
+\label{tab:ablation}
+\begin{tabular}{lccccc}
+\toprule
+Variant & Fusion dim & Accuracy (95\% CI) & AUC-ROC & MCC & $\Delta$ vs V1 \\
+\midrule
+V1\_CNN\_only & 512 & 95.23\% [93.90, 96.56] & 0.9941 & 0.9064 & +0.00pp \\
+V2\_CNN\_GAT & 768 & 94.78\% [93.23, 96.23] & 0.9952 & 0.8987 & -0.44pp \\
+V3\_CNN\_GCN & 576 & 97.11\% [96.00, 98.11] & 0.9960 & 0.9426 & +1.89pp \\
+V4\_CNN\_GAT\_GCN\_noSE & 832 & 96.34\% [95.01, 97.56] & 0.9955 & 0.9284 & +1.11pp \\
+V5\_Hybrid\_full & - & 99.33\% [98.78, 99.78] & 0.9998 & 0.9867 & +4.11pp \\
+\bottomrule
+\end{tabular}
+\end{table}

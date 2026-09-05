@@ -1,0 +1,23 @@
+  Path overlap:
+    V4 total : 901
+    V5 total : 901
+    Common   : 901
+    V4-only  : 0    (dropped from paired test)
+    V5-only  : 0    (dropped from paired test)
+
+  Aligned test set: N = 901
+
+  V4 accuracy on aligned test set: 96.34%
+  V5 accuracy on aligned test set: 99.33%
+  Absolute delta                 : +3.00 pp
+
+  McNemar discordant pairs:
+    V4 correct AND V5 wrong (b) : 2
+    V4 wrong   AND V5 correct (c): 29
+    Total discordant             : 31
+    Chi-square (Yates corrected) : 21.8065
+    Exact two-sided p-value      : 4.6287e-07   ***
+
+  Interpretation:
+    SE gate provides a STATISTICALLY SIGNIFICANT improvement (p < 0.05).
+    Adding the SE fusion gate to V4 rescues 27 additional test patches.

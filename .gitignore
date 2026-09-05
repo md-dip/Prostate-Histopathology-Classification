@@ -1,0 +1,36 @@
+# ── Trained weights ──────────────────────────────────────────────────
+# ~2.2 GB across 19 checkpoints; every file exceeds GitHub's 100 MB limit.
+# Available from the corresponding author on request (see README).
+*.pth
+*.pt
+*.ckpt
+checkpoints/
+
+# ── Derived graph caches ─────────────────────────────────────────────
+# cache/graph_cache.pkl IS committed (see README - the published models were
+# trained against it). Everything else in cache/ is rebuildable.
+cache/*
+!cache/graph_cache.pkl
+*.pkl.bak
+
+# ── External-validation cohort ───────────────────────────────────────
+# Third-party dataset, not redistributable.
+Gleason_2019/
+
+# ── Python ───────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+*.egg-info/
+
+# ── Editors / OS ─────────────────────────────────────────────────────
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ── Office lock files ────────────────────────────────────────────────
+~$*

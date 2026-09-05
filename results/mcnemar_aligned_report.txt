@@ -1,0 +1,44 @@
+==================================================================================
+  McNemar's Exact Test - Pairwise Model Comparisons (aligned by file path)
+  Test set: N = 901 patches, seed=42, stratified 70/15/15 split
+==================================================================================
+  Pair                              b      c   |b-c|   chi2_cc     p_exact  signif
+  ------------------------------------------------------------------------------
+  Hybrid vs LGCN                   30      2      28    22.781    2.46e-07  ***
+  Hybrid vs GAT                    31      3      28    21.441    7.66e-07  ***
+  Hybrid vs JGCN-orig             214      2     212   206.116    4.45e-61  ***
+  Hybrid vs JGCN-matched           42      3      39    32.089    8.65e-10  ***
+  LGCN vs GAT                      18     18       0     0.028    1.00e+00  ns
+  LGCN vs JGCN-orig               190      6     184   170.862    1.50e-48  ***
+  LGCN vs JGCN-matched             24     13      11     2.703    9.89e-02  ns
+  GAT vs JGCN-orig                191      7     184   169.136    1.10e-47  ***
+  GAT vs JGCN-matched              26     15      11     2.439    1.17e-01  ns
+  JGCN-orig vs JGCN-matched        10    183     173   153.285    2.63e-42  ***
+  ------------------------------------------------------------------------------
+  b = A right, B wrong    c = A wrong, B right
+  *** p<0.001    ** p<0.01    * p<0.05    ns not significant
+==================================================================================
+
+
+% --- LaTeX table snippet ---
+\begin{table}[htb]
+\centering
+\caption{McNemar\'s exact test on paired non-TTA predictions (N=901), aligned by file path.}
+\label{tab:mcnemar}
+\begin{tabular}{lccrr}
+\toprule
+Comparison & $b$ & $c$ & $\chi^2_{cc}$ & $p$-value \\
+\midrule
+Hybrid vs LGCN & 30 & 2 & 22.78 & 2.46e-07 \\
+Hybrid vs GAT & 31 & 3 & 21.44 & 7.66e-07 \\
+Hybrid vs JGCN-orig & 214 & 2 & 206.12 & 4.45e-61 \\
+Hybrid vs JGCN-matched & 42 & 3 & 32.09 & 8.65e-10 \\
+LGCN vs GAT & 18 & 18 & 0.03 & 1.000 \\
+LGCN vs JGCN-orig & 190 & 6 & 170.86 & 1.50e-48 \\
+LGCN vs JGCN-matched & 24 & 13 & 2.70 & 0.099 \\
+GAT vs JGCN-orig & 191 & 7 & 169.14 & 1.10e-47 \\
+GAT vs JGCN-matched & 26 & 15 & 2.44 & 0.117 \\
+JGCN-orig vs JGCN-matched & 10 & 183 & 153.28 & 2.63e-42 \\
+\bottomrule
+\end{tabular}
+\end{table}
